@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>This is the title of the webpage!</title>
+  </head>
+  <body>
+    <h1>Search widget test</h1>
+    <p>This is a test page for entreprise widget</p>
+    <input
+      type="text"
+      id="search-widget"
+      placeholder="Recherchez une entreprise par son nom ou son adresse"
+    />
+  </body>
+  <script type="text/javascript">
+    function debounce(func, timeout = 600) {
+      let timer;
+      return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          func.apply(this, args);
+        }, timeout);
+      };
+    }
+
+    function randomId() {
+      Math.random().toString(16).substring(7);
+    }
+
+    class SearchWidget {
+      constructor(id) {
+        this.id = id;
+      }
+
+      init = () => {
+        this.input = document.getElementById(id);
+
+        const debouncedOnChange = debounce(this.onChange);
+        this.input.addEventListener("input", (e) => debouncedOnChange(e));
+
+        this.createWidgetDom();
+      };
+
+      onChange = (e) => {
+        this.showLoader();
+        const response = fetch(
+          "http://api.sirene.dataeng.annuaire-entreprises-infra.etalab.studio/search?q=" +
+            encodeURIComponent(e.target.value)
+        ).then((response) => {
+          this.deleteResultList();
+          this.createResultList(response);
+          this.hideLoader();
+        });
+      };
+
+      /**
+       * DOM Methods
+       **/
+      createLoader() {}
+      showLoader() {
+        this.wrapper.class = "loading";
+      }
+
+      hideLoader() {
+        this.wrapper.class = "results";
+      }
+
+      createWrapper() {}
+      createResultList() {}
+      deleteResultList() {}
+    }
+
+    const inputWidget = new SearchWidget("search-widget");
+    inputWidget.init();
+
+    // TODO
+    // gérer pas de réseau
+    // gérer polyfill et échec d'init
+    // CORS
+  </script>
+</html>
