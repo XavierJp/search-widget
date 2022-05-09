@@ -1,0 +1,15 @@
+////
+/// Modal
+/// @group modal
+////
+
+/* ¯¯¯¯¯¯¯¯¯ *\
+  MODAL
+\* ˍˍˍˍˍˍˍˍˍ */
+
+@import '../../core/style/path/path-2';
+@import 'index';
+@import 'style/module';
+@import 'style/scheme';
+
+@include _modal-scheme;

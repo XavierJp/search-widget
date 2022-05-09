@@ -1,0 +1,11 @@
+////
+/// Core Legacy
+/// @group core
+////
+
+@import 'style/path/path-1';
+@import 'index';
+@import 'style/legacy';
+@import 'style/scheme';
+
+@include _core-scheme(true);

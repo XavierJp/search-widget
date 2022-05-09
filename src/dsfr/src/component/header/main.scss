@@ -1,0 +1,23 @@
+////
+/// Header Main
+/// @group header
+////
+
+/* ¯¯¯¯¯¯¯¯¯ *\
+  HEADER
+\* ˍˍˍˍˍˍˍˍˍ */
+
+@import '../../core/style/path/path-2';
+@import '../../media-query-order';
+@import 'index';
+@import 'style/module';
+@import 'style/scheme';
+
+// deprecated
+@import 'deprecated/style/module';
+@import 'deprecated/style/scheme';
+
+@include _header-scheme;
+
+// deprecated
+@include _header-deprecated-scheme;

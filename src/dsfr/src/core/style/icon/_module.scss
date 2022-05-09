@@ -1,0 +1,17 @@
+////
+/// Core Module : Icons
+/// @group core
+////
+
+@include has-icon {
+  @include icon-style(before, null);
+  @include icon-size(md);
+}
+
+#{ns(icon)} {
+  @each $size, $value in $icon-size-map {
+    &--#{$size} {
+      @include icon-size($size);
+    }
+  }
+}

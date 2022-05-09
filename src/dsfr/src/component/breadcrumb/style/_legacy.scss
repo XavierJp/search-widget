@@ -1,0 +1,19 @@
+////
+/// Breadcrumb legacy
+/// @group breadcrumb
+////
+
+@include legacy(ie11) {
+  /**
+  * reset liste à puce
+  */
+  #{ns(breadcrumb)} {
+    @include disable-list-style-legacy;
+
+    &__link {
+      &:not([aria-current]) {
+        @include icon-legacy(arrow-right-s-line, sm, after);
+      }
+    }
+  }
+}

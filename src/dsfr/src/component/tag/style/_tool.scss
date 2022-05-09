@@ -1,0 +1,66 @@
+////
+/// Tag Tool
+/// @group tag
+////
+
+@mixin build-tag() {
+  @include _build-link($tags-settings);
+}
+
+@mixin nest-tag($size:md, $place: null, $icon:null, $from: null, $insert: true) {
+  @include _nest-link($tags-settings, $size, $place, $icon, $from, $insert) {
+    @content;
+  }
+}
+
+@mixin pressed-selector($value:null) {
+  $attr: 'aria-pressed';
+  @if $value == true or $value == false {
+    $attr: 'aria-pressed="#{$value}"';
+  }
+
+  &[#{$attr}] {
+    @content;
+  }
+}
+
+@mixin tag-punched-background-states ($token, $size: md, $legacy: false, $hover:true, $active: true) {
+  @include tag-punched-background($token, $size, $legacy);
+
+  @if $hover {
+    &:hover {
+      @include tag-punched-background($token, $size, $legacy, (hover: true));
+    }
+  }
+
+  @if $active {
+    &:active {
+      @include tag-punched-background($token, $size, $legacy, (active: true));
+    }
+  }
+}
+
+@mixin tag-punched-background ($token, $size: md, $legacy: false, $options: ()) {
+  $legacy-target: ie11;
+  $type: hex;
+  @if not $legacy {
+    $legacy-target: null;
+    $type: decision;
+    $options: map-merge($options, (var: true));
+  }
+
+  $result: get-color($token, $type, $options);
+  $top: 1v;
+  $stop-1: 2.3125v;
+  $stop-2: 2.5v;
+
+  @if $size == sm {
+    $top: 0.75v;
+    $stop-1: 1.79v;
+    $stop-2: 2v;
+  }
+
+  @include legacy($legacy-target) {
+    background-image: radial-gradient(circle at 100% #{space($top)}, transparent #{space($stop-1)}, #{$result} #{space($stop-2)});
+  }
+}

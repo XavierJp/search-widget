@@ -1,0 +1,18 @@
+////
+/// Badge Main
+/// @group badge
+////
+
+/* ------------------------------------ *\
+  Badge
+\* ------------------------------------ */
+
+@import '../../core/style/path/path-2';
+@import 'index';
+@import 'style/module';
+@import 'style/scheme';
+
+@include _badge-scheme;
+
+// deprecated
+@import 'deprecated/style/module';

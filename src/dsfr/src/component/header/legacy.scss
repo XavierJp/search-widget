@@ -1,0 +1,18 @@
+////
+/// Header Legacy
+/// @group core
+////
+
+@import '../../core/style/path/path-2';
+@import 'index';
+@import 'style/scheme';
+@import 'style/legacy';
+
+// deprecated
+// @import 'deprecated/style/module';
+@import 'deprecated/style/scheme';
+
+@include _header-scheme(true);
+
+// deprecated
+@include _header-deprecated-scheme(true);

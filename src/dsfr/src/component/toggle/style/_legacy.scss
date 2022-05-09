@@ -1,0 +1,22 @@
+////
+/// Toggle Legacy
+/// @group toggle
+////
+
+@include legacy(ie11) {
+  #{ns(toggle)} {
+    input[type="checkbox"] {
+      &::-ms-check {
+        display: none;
+      }
+
+      &:checked {
+        @include icon-legacy(check-line, md);
+      }
+    }
+
+    &__list {
+      list-style: none;
+    }
+  }
+}

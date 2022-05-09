@@ -1,0 +1,15 @@
+////
+/// Quote Main
+/// @group quote
+////
+
+/* ¯¯¯¯¯¯¯¯¯ *\
+  QUOTE
+\* ˍˍˍˍˍˍˍˍˍ */
+
+@import '../../core/style/path/path-2';
+@import 'index';
+@import 'style/module';
+@import 'style/scheme';
+
+@include _quote-scheme;

@@ -2,80 +2,90 @@
 <html>
   <head>
     <title>This is the title of the webpage!</title>
-  </head>
-  <body>
-    <h1>Search widget test</h1>
-    <p>This is a test page for entreprise widget</p>
-    <input
-      type="text"
-      id="search-widget"
-      placeholder="Recherchez une entreprise par son nom ou son adresse"
+    <link
+      rel="apple-touch-icon"
+      href="/src/dsfr/dist/favicon/apple-touch-icon.png"
     />
+    <!-- 180×180 -->
+    <link
+      rel="icon"
+      href="/src/dsfr/dist/favicon/favicon.svg"
+      type="image/svg+xml"
+    />
+    <!-- si favicon.ico peut etre placé à la racine du serveur, retirer la ligne ci-dessous -->
+    <link
+      rel="shortcut icon"
+      href="/src/dsfr/dist/favicon/favicon.ico"
+      type="image/x-icon"
+    />
+    <!-- 32×32 -->
+    <link
+      rel="manifest"
+      href="/src/dsfr/dist/favicon/manifest.webmanifest"
+      crossorigin="use-credentials"
+    />
+    <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
+    <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
+    <link
+      href="/src/dsfr/dist/utility/utility.main.css"
+      rel="stylesheet"
+      file="main"
+    />
+    <link href="/src/dsfr/dist/dsfr.main.css" rel="stylesheet" file="main" />
+    <link
+      href="/src/dsfr/dist/utility/utility.legacy.css"
+      rel="stylesheet"
+      file="legacy"
+    />
+    <link
+      href="/src/dsfr/dist/dsfr.legacy.css"
+      rel="stylesheet"
+      file="legacy"
+    />
+  </head>
+  <style>
+    input {
+      width: 850px;
+    }
+
+    #wrapper {
+      background-color: #eee;
+    }
+    #wrapper div.item,
+    #wrapper div.loader,
+    #wrapper div.error-message {
+      padding: 3px 15px;
+      display: block;
+    }
+
+    #wrapper div.item {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    #wrapper div.item:hover {
+      background-color: #0a76f6;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    #wrapper div.more {
+      padding: 7px 15px;
+      text-align: right;
+    }
+  </style>
+  <body id="top" class="fr-mb-12w">
+    <div class="fr-container fr-mt-2v fr-mb-8w">
+      <h1>Search widget test</h1>
+      <p>This is a test page for entreprise widget</p>
+      <input
+        type="text"
+        class="fr-input"
+        id="search-widget"
+        placeholder="Recherchez une entreprise par son nom ou son adresse"
+      />
+      <p>Hey</p>
+    </div>
   </body>
-  <script type="text/javascript">
-    function debounce(func, timeout = 600) {
-      let timer;
-      return (...args) => {
-        clearTimeout(timer);
-        timer = setTimeout(() => {
-          func.apply(this, args);
-        }, timeout);
-      };
-    }
-
-    function randomId() {
-      Math.random().toString(16).substring(7);
-    }
-
-    class SearchWidget {
-      constructor(id) {
-        this.id = id;
-      }
-
-      init = () => {
-        this.input = document.getElementById(id);
-
-        const debouncedOnChange = debounce(this.onChange);
-        this.input.addEventListener("input", (e) => debouncedOnChange(e));
-
-        this.createWidgetDom();
-      };
-
-      onChange = (e) => {
-        this.showLoader();
-        const response = fetch(
-          "http://api.sirene.dataeng.annuaire-entreprises-infra.etalab.studio/search?q=" +
-            encodeURIComponent(e.target.value)
-        ).then((response) => {
-          this.deleteResultList();
-          this.createResultList(response);
-          this.hideLoader();
-        });
-      };
-
-      /**
-       * DOM Methods
-       **/
-      createLoader() {}
-      showLoader() {
-        this.wrapper.class = "loading";
-      }
-
-      hideLoader() {
-        this.wrapper.class = "results";
-      }
-
-      createWrapper() {}
-      createResultList() {}
-      deleteResultList() {}
-    }
-
-    const inputWidget = new SearchWidget("search-widget");
-    inputWidget.init();
-
-    // TODO
-    // gérer pas de réseau
-    // gérer polyfill et échec d'init
-    // CORS
-  </script>
+  <script type="module" src="/src/index.ts"></script>
 </html>

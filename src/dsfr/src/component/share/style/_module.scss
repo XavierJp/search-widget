@@ -1,0 +1,52 @@
+////
+/// Share Module
+/// @group share
+////
+
+#{ns(share)} {
+  @include display-flex(column);
+  @include set-text-margin(0 0 4v);
+  @include set-title-margin(0 0 4v);
+
+  &__btn {
+    @include margin-x(1v);
+    @include margin-bottom(2v);
+  }
+
+  &__title {
+    @include text-style(md);
+    order: 1;
+  }
+
+  &__text {
+    @include text-style(xs);
+    @include max-width(72v, md);
+    order: 3;
+  }
+
+  #{ns-group(btns)} {
+    @include horizontal-btns-group;
+    @include margin-right(-4v);
+    @include margin-bottom(2v);
+    @include width(auto);
+    order: 2;
+
+    #{ns(btn)} {
+      justify-content: flex-start;
+    }
+
+    &:not(#{ns-group(btns)}--sm):not(#{ns-group(btns)}--lg) {
+      #{ns(btn)} {
+        @include has-not-icon {
+          @include nest-btn(md, only, null, null, false);
+        }
+      }
+    }
+  }
+}
+
+@include build-share-btn(facebook, facebook-circle-line);
+@include build-share-btn(twitter, twitter-line);
+@include build-share-btn(linkedin, linkedin-box-line);
+@include build-share-btn(mail, mail-line);
+@include build-share-btn(copy, links-fill);

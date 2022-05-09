@@ -1,0 +1,24 @@
+////
+/// Follow Main
+/// @group follow
+////
+
+/* ¯¯¯¯¯¯¯¯¯ *\
+  FOLLOW
+\* ˍˍˍˍˍˍˍˍˍ */
+
+@import '../../core/style/path/path-2';
+@import '../../media-query-order';
+@import 'index';
+@import 'style/module';
+@import 'style/scheme';
+
+// deprecated
+@import 'deprecated/style/tool';
+@import 'deprecated/style/module';
+@import 'deprecated/style/scheme';
+
+@include _follow-scheme;
+
+// deprecated
+@include _follow-deprecated-scheme;

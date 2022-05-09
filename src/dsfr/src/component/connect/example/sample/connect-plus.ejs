@@ -1,0 +1,13 @@
+<%
+const connect = locals.connect || {}
+const data = {
+  ...locals.connect,
+  type: 'plus',
+  link: connect.link || {
+    label: 'Qu’est ce que FranceConnect+ ?',
+    href: 'https://franceconnect.gouv.fr/france-connect-plus'
+  },
+}
+
+%>
+<%- include('connect-default.ejs', {connect: data}) %>

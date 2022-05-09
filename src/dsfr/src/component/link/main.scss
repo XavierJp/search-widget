@@ -1,0 +1,22 @@
+////
+/// Link Main
+/// @group link
+////
+
+/* ¯¯¯¯¯¯¯¯¯ *\
+  LINK
+\* ˍˍˍˍˍˍˍˍˍ */
+
+@import '../../core/style/path/path-2';
+@import 'index';
+@import 'style/module';
+@import 'style/scheme';
+
+// deprecated
+@import 'deprecated/style/module';
+@import 'deprecated/style/scheme';
+
+@include _link-scheme;
+
+// deprecated
+@include _link-deprecated-scheme;

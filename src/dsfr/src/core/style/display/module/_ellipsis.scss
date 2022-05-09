@@ -1,0 +1,11 @@
+////
+/// Core Module : Display ellispsis
+/// @group core
+////
+
+@include build-utility (display, ellipsis) {
+  display: important(inline);
+  white-space: important(nowrap);
+  overflow: important(hidden);
+  text-overflow: important(ellipsis);
+}

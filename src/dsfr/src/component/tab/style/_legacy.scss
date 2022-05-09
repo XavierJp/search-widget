@@ -1,0 +1,18 @@
+////
+/// Tab Legacy
+/// @group tab
+////
+
+@include legacy(ie11) {
+  /**
+  * Reset liste à puce
+  */
+  #{ns(tabs)} {
+    @include disable-list-style-legacy;
+
+    &__panel {
+      @include enable-list-style-legacy;
+      @include enable-underline-legacy;
+    }
+  }
+}

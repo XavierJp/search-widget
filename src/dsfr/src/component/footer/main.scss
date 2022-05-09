@@ -1,0 +1,16 @@
+////
+/// Footer Main
+/// @group footer
+////
+
+/* ¯¯¯¯¯¯¯¯¯ *\
+  FOOTER
+\* ˍˍˍˍˍˍˍˍˍ */
+
+@import '../../core/style/path/path-2';
+@import '../../media-query-order';
+@import 'index';
+@import 'style/module';
+@import 'style/scheme';
+
+@include _footer-scheme;

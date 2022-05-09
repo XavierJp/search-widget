@@ -1,0 +1,15 @@
+////
+/// Breadcrumb Main
+/// @group breadcrumb
+////
+
+/* ¯¯¯¯¯¯¯¯¯ *\
+  BREADCRUMB
+\* ˍˍˍˍˍˍˍˍˍ */
+
+@import '../../core/style/path/path-2';
+@import 'index';
+@import 'style/module';
+@import 'style/scheme';
+
+@include _breadcrumb-scheme;

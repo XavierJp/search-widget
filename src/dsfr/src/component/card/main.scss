@@ -1,0 +1,18 @@
+////
+/// Card Main
+/// @group card
+////
+
+/* ¯¯¯¯¯¯¯¯¯ *\
+  CARD
+\* ˍˍˍˍˍˍˍˍˍ */
+
+@import '../../core/style/path/path-2';
+@import 'index';
+@import 'style/module';
+@import 'style/scheme';
+
+// deprecated
+@import 'deprecated/style/module';
+
+@include _card-scheme;

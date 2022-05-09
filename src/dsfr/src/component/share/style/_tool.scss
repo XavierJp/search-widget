@@ -1,0 +1,10 @@
+////
+/// Share Tool
+/// @group share
+////
+
+@mixin build-share-btn($name, $icon) {
+  #{ns(btn)}--#{$name} {
+    @include nest-btn(md, only, $icon, null, false);
+  }
+}
